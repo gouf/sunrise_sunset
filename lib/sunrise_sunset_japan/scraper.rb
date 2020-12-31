@@ -26,7 +26,7 @@ class SunriseSunsetJapan
         target_page.search('.MainTable td')
                    .find_all { |td| Constants::TARGET_PREFECTURES.include?(td.text) }
 
-      @sunrise_sunset_list = prefecture_elements.map(&:recapture_as_struct)
+      @sunrise_sunset_list = prefecture_elements.map(&method(:recapture_as_struct))
     end
 
     private
